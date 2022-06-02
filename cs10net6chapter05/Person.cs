@@ -26,5 +26,41 @@ namespace Packt.Shared
             Instantiated = DateTime.Now;  
             
         }
+
+        public Person(string initialName, string homePlanet)
+        {
+            Name = initialName;
+            HomePlanet = homePlanet;
+            Instantiated = DateTime.Now;
+        }
+
+        public void WriteToConsole()
+        {
+            WriteLine($"{Name} was born on a {DateOfBirth:dddd}.");
+        }
+
+        public string GetOrigin()
+        {
+            return $"{Name} was born on {HomePlanet}";
+        }
+
+        // how to get multiple returned values ?
+        public class TextAndNumber
+        {
+            public string Text;
+            public int Number;
+        }
+
+        public class LifeTheUniverseAndEverything
+        {
+            public TextAndNumber GetTheData()
+            {
+                return new TextAndNumber
+                {
+                    Text = "What's the meaning of life ?"
+                    Number = 42
+                };
+            }
+        }
     }
 }

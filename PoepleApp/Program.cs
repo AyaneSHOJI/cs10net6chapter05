@@ -37,7 +37,9 @@ Person alice = new()
 // p.194 initializing fields with constructors
 Person blankPerson = new();
 
+Person gunny = new(initialName: "Gunny", homePlanet: "Mars");
 
+// Outputs
 WriteLine(format: "{0} was born on {1:dddd, d MMMM yyyy}",
             arg0: alice.Name,
             arg1: alice.DateOfBirth);
@@ -51,6 +53,11 @@ WriteLine(format: "{0} of {1} was created at {2:hh:mm:ss} on a {2:dddd}",
             arg1: blankPerson.HomePlanet,
             arg2: blankPerson.Instantiated);
 
+WriteLine(format: "{0} of {1} was created at {2:hh:mm:hh:ss} on a {2:dddd}",
+            arg0: gunny.Name,
+            arg1: gunny.HomePlanet,
+            arg2: gunny.Instantiated);
+
 // p.191 Making a field static
 BankAccount.InterestRate = 0.012M; // stored a shared value
 
@@ -62,3 +69,7 @@ WriteLine($"{jonesAccount.AccountName} earned {(jonesAccount.Balance * BankAccou
 WriteLine(format: "{0} earned {1:C} interent.",
             arg0: jonesAccount.AccountName,
             arg1: jonesAccount.Balance * BankAccount.InterestRate);
+
+// p.195 Writing and calling methods
+bob.WriteToConsole();
+WriteLine(bob.GetOrigin()); 
