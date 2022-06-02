@@ -14,5 +14,17 @@ namespace Packt.Shared
         public WondersOfTheAncientWorld FavoriteAncientWonder;
         public WondersOfTheAncientWorld BucketList;
         public List<Person> Children = new List<Person>();// List should be initialized to avoid runtime exceptions
+        public const string Species = "Homo Sapien";
+        public readonly string HomePlanet = "Earth"; // better choice thant const
+        public readonly DateTime Instantiated;
+
+        // constructors
+        public Person()
+        {
+            // set default values for fields including read-only fields
+            Name = "Unknown";
+            Instantiated = DateTime.Now;  
+            
+        }
     }
 }

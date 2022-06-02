@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Packt.Shard
+namespace Packt.Shared
 {
     public class BankAccount
     {
