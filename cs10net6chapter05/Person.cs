@@ -57,10 +57,44 @@ namespace Packt.Shared
             {
                 return new TextAndNumber
                 {
-                    Text = "What's the meaning of life ?"
+                    Text = "What's the meaning of life ?",
                     Number = 42
                 };
             }
+        }
+        // tuple syntax
+        public (string, int) GetFruit()
+        {
+            return ("Apples", 5);
+        }
+
+        // tuple with named filed
+        public(string Name, int Number) GetNamedFruit()
+        {
+            return (Name: "Apples", Number: 5);
+        }
+
+        // parameters
+        public string SayHello()
+        {
+            return $"{Name} says 'Hello!'";
+        }
+
+        public string SayHello(string name)
+        {
+            return $"{Name} says 'Hello {name}!'";
+        }
+
+        public string OptionalParameters(
+            string command = "Run!",
+            double number = 0.0,
+            bool active = true)
+        {
+            return string.Format(
+                format: "command is {0}, number is {1}, active is {2}",
+                    arg0: command,
+                    arg1: number,
+                    arg2: active);
         }
     }
 }

@@ -73,3 +73,20 @@ WriteLine(format: "{0} earned {1:C} interent.",
 // p.195 Writing and calling methods
 bob.WriteToConsole();
 WriteLine(bob.GetOrigin()); 
+
+// P.197 Language support for tuples
+(string, int) fruit = bob.GetFruit();
+
+WriteLine($"{fruit.Item1}, {fruit.Item2} there are.");
+
+var fruitNamed = bob.GetNamedFruit();
+
+WriteLine($"There are {fruitNamed.Number} {fruitNamed.Name}");
+
+// P.200 Parameters
+WriteLine(bob.SayHello());
+WriteLine(bob.SayHello("Emily"));
+
+// p.201 Passing opitonal and named parameters
+WriteLine(bob.OptionalParameters());    
+WriteLine(bob.OptionalParameters("Jamp", 98.5));    
