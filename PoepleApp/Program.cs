@@ -148,7 +148,7 @@ object[] passengers =
     new CoachClassPassenger { CarryOnKg = 0 },
 };
 
-foreach(object passenger in passengers)
+foreach (object passenger in passengers)
 {
     decimal flightCost = passenger switch
     {
@@ -178,4 +178,35 @@ foreach(object passenger in passengers)
     };
 
     WriteLine($"Flight costs {flightCost:C} for {passenger}");
+
+    
+
 }
+
+ImmutablePerson jeff = new()
+{
+    FirstName = "Jeff",
+    LastName = "Winger",
+};
+
+// we can't assign new value here
+//jeff.FirstName = "Geoff";
+
+ImmutableVehicle car = new()
+{
+    Brand = "Mazda MX-5 RF",
+    Color = "Soul Red Crystal Metallic",
+    Wheels = 4
+};
+
+// p.215 "with" keyword allows to assign a new value 
+ImmutableVehicle reparintedCar = car
+    with
+{ Color = "Polymetal Grey Mettalic" };
+
+WriteLine($"Original car color was {car.Color}");
+WriteLine($"New car color is {reparintedCar.Color}");
+
+immutableAnimal oscar = new("Oscar", "Labrador");
+var (who, what) = oscar;
+WriteLine($"{who} is a {what}.");
