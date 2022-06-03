@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\cs10net6chapter05\PacktLibrary.csproj" />
+    <ProjectReference Include="..\PacktLibraryModern\PacktLibraryModern.csproj" />
   </ItemGroup>
 
 </Project>
