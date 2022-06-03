@@ -135,3 +135,47 @@ WriteLine($"Sam's first child is {sam.Children[0].Name}");
 WriteLine($"Sam's first child is {sam[0].Name}");
 WriteLine($"Sam's second child is {sam.Children[1].Name}");
 WriteLine($"Sam's second child is {sam[1].Name}");
+
+
+// p.211 pattern matching
+object[] passengers =
+{
+    // _ = digit separtor, for better readbility of numerical value
+    new FirstClassPassenger { AirMiles = 1_419 },
+    new FirstClassPassenger { AirMiles = 16_562 },
+    new BusinessClassPassenger(),
+    new CoachClassPassenger { CarryOnKg = 25.7 },
+    new CoachClassPassenger { CarryOnKg = 0 },
+};
+
+foreach(object passenger in passengers)
+{
+    decimal flightCost = passenger switch
+    {
+        //This is C# 8 syntax
+        //// local variables are needed if test matching is on the properties of an object
+        //FirstClassPassenger p when p.AirMiles > 35000 => 1500M,
+        //FirstClassPassenger p when p.AirMiles > 15000 => 1750M,
+        //// discard with _ in the case of type only
+        //FirstClassPassenger _ => 2000M,
+        //BusinessClassPassenger _ => 1000M,
+        //CoachClassPassenger p when p.CarryOnKg < 10.0 => 500M,
+        //CoachClassPassenger _ => 650M,
+        //_ => 800M
+
+        //This is C# 9 or later syntax
+        FirstClassPassenger p => p.AirMiles switch
+        {
+            > 35000 => 1500M,
+            > 15000 => 1750M,
+            _ => 2000M
+        },
+
+        BusinessClassPassenger => 1000M,
+        CoachClassPassenger p when p.CarryOnKg < 10.0 => 500M,
+        CoachClassPassenger => 650M,
+        _ => 800M
+    };
+
+    WriteLine($"Flight costs {flightCost:C} for {passenger}");
+}
