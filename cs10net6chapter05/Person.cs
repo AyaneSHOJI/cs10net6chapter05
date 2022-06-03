@@ -6,7 +6,7 @@ using static System.Console;
 
 namespace Packt.Shared 
 {
-    public class Person : Object //F12 to see definition
+    public partial class Person : Object //F12 to see definition
     {
         // fields
         public string Name;
@@ -96,5 +96,16 @@ namespace Packt.Shared
                     arg1: number,
                     arg2: active);
         }
+
+        public void PassingParameters(int x, ref int y, out int z)
+        {
+            // out parameters cannot have a default and must be initialized inside the methode
+            z = 99;
+            x++;
+            y++;
+            z++;
+        }
+
+        
     }
 }

@@ -89,4 +89,47 @@ WriteLine(bob.SayHello("Emily"));
 
 // p.201 Passing opitonal and named parameters
 WriteLine(bob.OptionalParameters());    
-WriteLine(bob.OptionalParameters("Jamp", 98.5));    
+WriteLine(bob.OptionalParameters("Jamp", 98.5));
+
+// we can change the order of parameters
+WriteLine(bob.OptionalParameters(number: 52.7, command: "Hide!"));
+
+// we can skip parameters
+WriteLine(bob.OptionalParameters("Poke!", active:false));
+
+int a = 10;
+int b = 20;
+int c = 30;
+WriteLine($"Before: a = {a}, b = {b}, c = {c}");
+bob.PassingParameters(a, ref b, out c);
+WriteLine($"After : a = {a}, b = {b}, c = {c}");
+
+int d = 10;
+int e = 20;
+WriteLine($"Before d = {d}, e = {e}, f doesn't exsite yet:");
+bob.PassingParameters(d, ref e, out int f);
+WriteLine($"After : d = {d}, e = {e}, f = {f}");
+
+// p.206 Read-only properties
+Person sam = new()
+{
+    Name = "Sam",
+    DateOfBirth = new(1972, 1, 27)
+};
+
+WriteLine(sam.Origin);
+WriteLine(sam.Greeting);
+WriteLine(sam.Age);
+
+sam.FavoriteIceCream = "Chocolate Fudge";
+WriteLine($"Sam's favorite ice-cream is {sam.FavoriteIceCream}.");
+
+sam.FavoritePrimaryColor = "pink";
+WriteLine($"Sam's favorite primary color is {sam.FavoritePrimaryColor}.");
+
+// p.210 indexers
+sam.Children.Add(new() { Name = "Charlie" });
+sam.Children.Add(new() { Name = "Ella" });
+
+WriteLine($"Sam's first child is {sam.Children[0].Name}");
+WriteLine($"Sam's fir child is {sam.Children[1].Name}");

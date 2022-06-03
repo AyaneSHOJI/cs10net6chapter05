@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PacktLibrary", "cs10net6chapter05\PacktLibrary.csproj", "{2A5ED7E0-9A13-4EA1-A6E9-1C5AEDFAB318}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PoepleApp", "PoepleApp\PoepleApp.csproj", "{CCE0ACDC-C53B-46C7-B308-44BF05F854E0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleApp", "PoepleApp\PeopleApp.csproj", "{CCE0ACDC-C53B-46C7-B308-44BF05F854E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
